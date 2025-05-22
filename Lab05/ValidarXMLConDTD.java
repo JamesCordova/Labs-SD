@@ -11,9 +11,9 @@ public class ValidarXMLConDTD {
             // Crear un parser SAX de Xerces
             SAXParser parser = new SAXParser();
             
-            // Establecer un manejador por defecto para la validación (si es necesario personalizarlo, puedes hacerlo aquí)
+            // Establecer un manejador por defecto para la validación
             parser.setFeature("http://xml.org/sax/features/validation", true);  // Activar validación
-            parser.setFeature("http://apache.org/xml/features/validation/dynamic", false); // Para deshabilitar validación dinámica (opcional)
+            // parser.setFeature("http://apache.org/xml/features/validation/dynamic", false); // Para deshabilitar validación dinámica
             
             // Parsear el archivo XML y validar con el DTD
             parser.setContentHandler(new DefaultHandler());
