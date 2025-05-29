@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/index.html</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/index.jsp</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/src/java/com/compras/productos/comprasProductos.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/procesar_compra.jsp</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/error.jsp</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/src/java/com/compras/servlet/procesarCompraServlet.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/login.jsp</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/autenticar.jsp</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/web/logout.jsp</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/src/java/com/compras/security/characterEncodingFilter.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/src/java/com/compras/listeners/sessionListener.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/ComprasProductosApp/src/java/com/compras/security/securityFilter.java</file>
+        </group>
+    </open-files>
+</project-private>
