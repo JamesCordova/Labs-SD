@@ -1,0 +1,9 @@
+com\ventas\services\ProductoService.class
+com\ventas\services\ProductoServiceImpl.class
+com\ventas\services\VentaServiceImpl.class
+com\ventas\services\VentaService.class
+com\ventas\client\TestClienteVentas.class
+com\venta\PublishVentasServices.class
+com\ventas\model\Venta.class
+com\ventas\model\ItemVenta.class
+com\ventas\model\Producto.class
