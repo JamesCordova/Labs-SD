@@ -7,9 +7,15 @@ import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.util.Scanner;
 
+/*
+ * Cliente RMI para interactuar con el sistema remoto de gestión de tarjetas.
+ * Permite consultar, agregar y restar saldo, registrar clientes y asociar tarjetas.
+ */
+
 public class SistemaTarjetasClient {
     public static void main(String[] args) {
         try {
+            // Obtiene la referencia remota al objeto SistemaTarjetas
             SistemaTarjetas s = (SistemaTarjetas) Naming.lookup("rmi://localhost/SistemaTarjetasService");
             Scanner scanner = new Scanner(System.in);
 
@@ -24,15 +30,16 @@ public class SistemaTarjetasClient {
                 System.out.println("6. Salir");
 
                 int opcion = scanner.nextInt();
-                scanner.nextLine(); // Limpiar el buffer de entrada
+                scanner.nextLine(); // Limpia el buffer de entrada tras leer un entero
 
                 switch (opcion) {
                     case 1:
+                        // Consulta de saldo por DNI y número de tarjeta
                         System.out.println("Ingrese DNI:");
                         String dniSaldo = scanner.nextLine();
                         System.out.println("Ingrese número de tarjeta:");
                         int numeroTarjetaSaldo = scanner.nextInt();
-                        scanner.nextLine(); // Limpiar el buffer de entrada
+                        scanner.nextLine(); // Limpia el buffer tras leer un entero
                         try {
                             System.out.println("El saldo actual de la tarjeta " + numeroTarjetaSaldo + " es: "
                                     + s.getSaldo(dniSaldo, numeroTarjetaSaldo));
@@ -41,13 +48,14 @@ public class SistemaTarjetasClient {
                         }
                         break;
                     case 2:
+                        // Agregar saldo a una tarjeta específica
                         System.out.println("Ingrese DNI:");
                         String dniAgregarSaldo = scanner.nextLine();
                         System.out.println("Ingrese número de tarjeta:");
                         int numeroTarjetaAgregarSaldo = scanner.nextInt();
                         System.out.println("Ingrese saldo a agregar:");
                         BigDecimal saldoAgregar = scanner.nextBigDecimal();
-                        scanner.nextLine(); // Limpiar el buffer de entrada
+                        scanner.nextLine(); // Limpia el buffer tras leer un BigDecimal
                         try {
                             System.out.println("Saldo después de agregar: "
                                     + s.addSaldo(dniAgregarSaldo, numeroTarjetaAgregarSaldo, saldoAgregar));
@@ -56,13 +64,14 @@ public class SistemaTarjetasClient {
                         }
                         break;
                     case 3:
+                        // Restar saldo a una tarjeta específica
                         System.out.println("Ingrese DNI:");
                         String dniRestarSaldo = scanner.nextLine();
                         System.out.println("Ingrese número de tarjeta:");
                         int numeroTarjetaRestarSaldo = scanner.nextInt();
                         System.out.println("Ingrese saldo a restar:");
                         BigDecimal saldoRestar = scanner.nextBigDecimal();
-                        scanner.nextLine(); // Limpiar el buffer de entrada
+                        scanner.nextLine(); // Limpia el buffer tras leer un BigDecimal
                         try {
                             System.out.println("Saldo después de restar: "
                                     + s.subSaldo(dniRestarSaldo, numeroTarjetaRestarSaldo, saldoRestar));
@@ -71,6 +80,7 @@ public class SistemaTarjetasClient {
                         }
                         break;
                     case 4:
+                        // Registro de nuevo cliente
                         System.out.println("Ingrese nombre:");
                         String nombre = scanner.nextLine();
                         System.out.println("Ingrese apellido:");
@@ -85,6 +95,7 @@ public class SistemaTarjetasClient {
                         }
                         break;
                     case 5:
+                        // Registro de nueva tarjeta para un cliente
                         System.out.println("Ingrese DNI del titular de la tarjeta:");
                         String dniTitular = scanner.nextLine();
                         System.out.println("Ingrese tipo de tarjeta (CREDITO/DEBITO):");
@@ -97,7 +108,7 @@ public class SistemaTarjetasClient {
                         String nombreTitular = scanner.nextLine();
                         System.out.println("Ingrese saldo inicial:");
                         BigDecimal saldoInicial = scanner.nextBigDecimal();
-                        scanner.nextLine(); // Limpiar el buffer de entrada
+                        scanner.nextLine(); // Limpia el buffer tras leer un BigDecimal
                         try {
                             s.agregarTarjeta(dniTitular, TipoTarjeta.valueOf(tipoTarjeta), fechaVencimiento, cvv,
                                     nombreTitular, saldoInicial);
@@ -105,13 +116,16 @@ public class SistemaTarjetasClient {
                         } catch (RemoteException re) {
                             System.out.println("Error: " + re.getMessage());
                         } catch (IllegalArgumentException iae) {
+                            // Manejo de error en caso de tipo de tarjeta inválido
                             System.out.println("Tipo de tarjeta inválido.");
                         }
                         break;
                     case 6:
+                        // Finaliza el programa
                         exit = true;
                         break;
                     default:
+                        // Opción no reconocida
                         System.out.println("Opción no válida");
                         break;
                 }
@@ -119,10 +133,13 @@ public class SistemaTarjetasClient {
 
             scanner.close();
         } catch (MalformedURLException murle) {
+            // Error en la URL de conexión RMI
             System.out.println("MalformedURLException: " + murle);
         } catch (RemoteException re) {
+            // Error general en la comunicación remota
             System.out.println("RemoteException: " + re);
         } catch (NotBoundException nbe) {
+            // Servicio RMI no encontrado en el registro
             System.out.println("NotBoundException: " + nbe);
         }
     }

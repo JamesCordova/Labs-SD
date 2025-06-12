@@ -2,6 +2,8 @@ package Lab04.Propuesto02;
 
 import java.math.BigDecimal;
 
+// Representa una tarjeta (crédito o débito) con información relevante como número, tipo, CVV, saldo, etc.
+
 public class Tarjeta {
 
     private int numero;

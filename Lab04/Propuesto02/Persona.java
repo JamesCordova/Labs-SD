@@ -2,6 +2,11 @@ package Lab04.Propuesto02;
 
 import java.util.HashMap;
 
+/*
+ * Representa una persona que puede tener múltiples tarjetas asociadas.
+ * Gestiona los datos personales y una colección de objetos Tarjeta, cada uno con un número único.
+ */
+
 public class Persona {
     private String nombre;
     private String apellido;
@@ -40,6 +45,7 @@ public class Persona {
         this.tarjetas = new HashMap<>();
     }
 
+    // Agrega una nueva tarjeta y le asigna un número único incremental
     public void addTarjeta(Tarjeta tarjeta) {
         cantidadTarjetas++;
         tarjeta.setNumero(cantidadTarjetas);
@@ -53,5 +59,4 @@ public class Persona {
     public HashMap<Integer, Tarjeta> getTarjetas() {
         return tarjetas;
     }
-
 }

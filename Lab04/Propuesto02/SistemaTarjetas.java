@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+/*
+ * Interfaz remota para el sistema de gestión de tarjetas.
+ * Define las operaciones disponibles.
+ */
+
 public interface SistemaTarjetas extends Remote {
     public BigDecimal getSaldo(String dni, int numeroTarjeta) throws RemoteException;
 

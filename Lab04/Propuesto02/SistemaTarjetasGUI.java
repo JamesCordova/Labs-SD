@@ -1,5 +1,8 @@
 package Lab04.Propuesto02;
 
+// Implementa una interfaz gráfica (GUI) para interactuar con un sistema de gestión de tarjetas
+// usando RMI. 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,6 +18,7 @@ public class SistemaTarjetasGUI {
 
     public SistemaTarjetasGUI() {
         try {
+            // Conexión al servicio RMI remoto
             sistemaTarjetas = (SistemaTarjetas) Naming.lookup("rmi://localhost/SistemaTarjetasService");
             createAndShowGUI();
         } catch (Exception e) {
@@ -29,6 +33,7 @@ public class SistemaTarjetasGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 
+        // Panel principal con botones de acciones
         JPanel panel = new JPanel(new GridLayout(6, 1));
         frame.add(panel);
 
@@ -46,6 +51,7 @@ public class SistemaTarjetasGUI {
         panel.add(btnAgregarTarjeta);
         panel.add(btnSalir);
 
+        // Asignación de acciones a los botones
         btnConsultarSaldo.addActionListener(e -> consultarSaldo());
         btnAgregarSaldo.addActionListener(e -> agregarSaldo());
         btnRestarSaldo.addActionListener(e -> restarSaldo());
@@ -57,6 +63,7 @@ public class SistemaTarjetasGUI {
     }
 
     private void consultarSaldo() {
+        // Diálogo para ingresar datos y consultar el saldo de una tarjeta
         JPanel panel = new JPanel(new GridLayout(3, 2));
         JTextField txtDNI = new JTextField();
         JTextField txtNumeroTarjeta = new JTextField();
@@ -80,6 +87,7 @@ public class SistemaTarjetasGUI {
     }
 
     private void agregarSaldo() {
+        // Diálogo para agregar saldo a una tarjeta
         JPanel panel = new JPanel(new GridLayout(4, 2));
         JTextField txtDNI = new JTextField();
         JTextField txtNumeroTarjeta = new JTextField();
@@ -107,6 +115,7 @@ public class SistemaTarjetasGUI {
     }
 
     private void restarSaldo() {
+        // Diálogo para restar saldo de una tarjeta
         JPanel panel = new JPanel(new GridLayout(4, 2));
         JTextField txtDNI = new JTextField();
         JTextField txtNumeroTarjeta = new JTextField();
@@ -134,6 +143,7 @@ public class SistemaTarjetasGUI {
     }
 
     private void agregarCliente() {
+        // Diálogo para registrar un nuevo cliente
         JPanel panel = new JPanel(new GridLayout(4, 2));
         JTextField txtNombre = new JTextField();
         JTextField txtApellido = new JTextField();
@@ -161,6 +171,7 @@ public class SistemaTarjetasGUI {
     }
 
     private void agregarTarjeta() {
+        // Diálogo para registrar una nueva tarjeta asociada a un cliente
         JPanel panel = new JPanel(new GridLayout(7, 2));
         JTextField txtDNI = new JTextField();
         JTextField txtTipo = new JTextField();
@@ -203,6 +214,7 @@ public class SistemaTarjetasGUI {
     }
 
     public static void main(String[] args) {
+        // Inicia la interfaz gráfica en el hilo de eventos de Swing
         SwingUtilities.invokeLater(SistemaTarjetasGUI::new);
     }
 }
